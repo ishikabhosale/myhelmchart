@@ -1,0 +1,19 @@
+# templates/daemonset.yaml
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: busybox-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+        - name: busybox
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          command: ["/bin/sh", "-c", "sleep infinity"]

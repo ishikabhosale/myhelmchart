@@ -1,0 +1,5 @@
+# templates/values.yaml
+
+image:
+  repository: busybox
+  tag: latest
